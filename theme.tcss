@@ -1,0 +1,105 @@
+/* ------------------------------------------------------------------
+   Folder Organizer theme
+   Edit the colors below to customize the whole app's appearance.
+   Textual reloads this automatically if you run with `textual run --dev`.
+   ------------------------------------------------------------------ */
+
+/* Root background for the whole app - shows through anywhere another
+   rule doesn't paint over it (e.g. margins around the ListView). */
+Screen {
+    background: #000000;
+}
+
+/* Top bar (app title + clock, since OrganizerApp uses Header(show_clock=True)). */
+Header {
+    background: #00ffee;
+    color: #000000;
+    text-style: bold;
+}
+
+/* Bottom bar showing active keybindings (a/r/d/etc). */
+Footer {
+    background: #0d4d61;
+    color: #000000;
+}
+
+/* The current-path bar just above the folder list. */
+#breadcrumb {
+    padding: 1 2;
+    background: #0d4d61;
+    color: #00ffee;
+    text-style: bold;
+    border-bottom: solid #00ffee;
+}
+
+/* The scrollable list of folders in the current directory. */
+ListView {
+    background: #10121a;
+    border: round #00ffee;
+    margin: 1 2;
+}
+
+/* Each individual folder row, before any interaction. */
+ListItem {
+    padding: 0 1;
+    color: #00ffee;
+}
+
+/* Mouse-hover state on a folder row (not the same as keyboard-highlighted). */
+ListItem:hover {
+    background: #469bf0;
+    color: #ffffff;
+}
+
+/* The row currently highlighted by keyboard/mouse cursor (the one Enter
+   or a click would act on). Textual's ListItem sets this as the CSS
+   class "-highlight" (single dash) internally. */
+ListView > ListItem.-highlight {
+    background: #469bf0;
+    color: #ffffff;
+}
+
+/* Row of action buttons below the folder list (Add/Rename/Delete/etc). */
+#toolbar {
+    height: auto;
+    padding: 1 2;
+    align: center middle;
+}
+
+/* Spacing between the toolbar buttons themselves. */
+#toolbar Button {
+    margin: 0 1;
+}
+
+/* Default button look, used unless a variant class below overrides it. */
+Button {
+    background: #2a2f45;
+    color: #d5d9ec;
+    border: tall #3a4066;
+    align: center middle;
+}
+
+/* Mouse-hover state for any button. */
+Button:hover {
+    background: #3a4066;
+}
+
+/* variant="primary" - used by the "Back to Shell" button. */
+Button.-primary {
+    background: #3557d6;
+    color: #ffffff;
+    padding: 0 3
+}
+
+/* variant="success" - used by the "Activate venv" button. */
+Button.-success {
+    background: #2e8b57;
+    color: #ffffff;
+    padding: 0 3
+}
+
+/* variant="error" - used by the "Delete" confirmation button. */
+Button.-error {
+    background: #b3372c;
+    color: #ffffff;
+}
